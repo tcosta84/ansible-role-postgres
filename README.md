@@ -1,5 +1,5 @@
-Role Name
-=========
+Ansible Role: Postgres
+======================
 
 Installs minimal Postgres 9.3 on CentOS 6.5
 
