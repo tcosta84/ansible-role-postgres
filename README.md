@@ -21,7 +21,7 @@ You can override these values on your playbook.
 Dependencies
 ------------
 
-None.
+* tcosta84.yum
 
 Example Playbook
 ----------------
