@@ -1,0 +1,8 @@
+---
+
+port: '5432'
+
+# what IP address(es) to listen on;
+# comma-separated list of addresses;
+# defaults to 'localhost'; use '*' for all
+listen_addresses: 'localhost'

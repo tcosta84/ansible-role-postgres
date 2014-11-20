@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Thiago Costa
+  description: Install minimal Postgres 9.3 on CentOS
+  company: 
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+  categories:
+  - database
+  - database:sql
+  - development
+  - web
+dependencies: []
