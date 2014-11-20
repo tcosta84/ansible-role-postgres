@@ -38,4 +38,4 @@ BSD
 Author Information
 ------------------
 
-This role was created by Thiago Costa
+This role was created by [Thiago Costa](http://thiagocostapy.com)
