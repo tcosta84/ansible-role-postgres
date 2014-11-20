@@ -26,7 +26,7 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: dbservers
+    - hosts: servers
       roles:
          - { role: tcosta84.postgres }
 
