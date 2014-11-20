@@ -2,5 +2,17 @@
 
 - hosts: example
   remote_user: root
+  vars:
+    - postgres_listen_addresses: '*'
+    - postgres_db_name: blacklist
+    - postgres_db_user: postgres
+    - postgres_db_pass: md53175bce1d3201d16594cebf9d7eb3f9d
+    - postgres_db_pass_encrypted: true
+    - postgres_db_encoding: UTF-8
+    - postgres_db_lc_collate: pt_BR.UTF-8
+    - postgres_db_lc_ctype: pt_BR.UTF-8
+    - postgres_db_template: template0
+    - postgres_pg_hba_custom:
+        - { type: host, database: blacklist, user: postgres, address: 0.0.0.0/0, method: md5 }
   roles:
     - ansible-role-postgres

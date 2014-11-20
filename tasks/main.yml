@@ -35,5 +35,37 @@
   template: src=postgresql.conf dest=/var/lib/pgsql/9.3/data/postgresql.conf backup=yes
   notify: restart postgres
 
+- name: Update pg_hba
+  sudo: yes
+  sudo_user: postgres
+  template: src=pg_hba.conf dest=/var/lib/pgsql/9.3/data/pg_hba.conf backup=yes
+  notify: restart postgres
+
 - name: Ensure Postgres is started and always starts on boot
   service: name=postgresql-9.3 state=started enabled=yes
+
+- name: Ensure database user exists
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user:
+    name={{ postgres_db_user }}
+    password={{ postgres_db_pass }}
+    encrypted={{ postgres_db_pass_encrypted | default(false) }}
+  when: postgres_db_user is defined and postgres_db_pass is defined
+  notify: restart postgres
+
+- name: Ensure application database exists
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db:
+    name={{ postgres_db_name }}
+    owner={{ postgres_db_user }}
+    encoding={{ postgres_db_encoding }}
+    lc_collate={{ postgres_db_lc_collate }}
+    lc_ctype={{ postgres_db_lc_ctype }}
+    template={{ postgres_db_template }}
+    state=present
+  when: postgres_db_name is defined and postgres_db_user is defined 
+        and postgres_db_encoding is defined and postgres_db_lc_collate is defined
+        and postgres_db_lc_ctype is defined and postgres_db_template is defined
+  notify: restart postgres
