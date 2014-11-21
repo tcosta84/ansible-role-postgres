@@ -4,7 +4,7 @@ galaxy_info:
   description: Install minimal Postgres 9.3 on CentOS
   company: 
   license: license (GPLv2, CC-BY, etc)
-  min_ansible_version: 1.2
+  min_ansible_version: 1.7
   platforms:
   - name: EL
     versions:
